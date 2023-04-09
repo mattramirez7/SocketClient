@@ -1,0 +1,26 @@
+Demonstrate that it works by connecting to:
+
+1. server djxmmx.net / port 17 (Quote of the Day service)
+
+(base) Matts-MacBook-Pro-2:SocketClient matthewramirez38$ java SocketClient djxmmx.net 17 testing sending input down socket
+Connected to djxmmx.net:17
+Sending message: testing sending input down socket
+Printing socket output: "Bulls down one, Michael against Russell, 12 seconds, 11, 10, Jordan, a drive, hangs, fires, SCORES!"
+        - 1998 NBA Finals (Jordan's Last Shot)
+
+
+
+2. server time.nist.gov / port 13 (Date-and-Time service)
+
+(base) Matts-MacBook-Pro-2:SocketClient matthewramirez38$ java SocketClient time.nist.gov 13 testing sending input down socket
+Connected to time.nist.gov:13
+Sending message: testing sending input down socket
+Printing socket output: 
+60043 23-04-09 23:22:14 50 0 0 201.4 UTC(NIST) * 
+
+3. server tcpbin.com / port 4242 or 34.230.40.69 / port 30000 (Echo service)
+
+(base) Matts-MacBook-Pro-2:SocketClient matthewramirez38$ java SocketClient tcpbin.com 4242 testing sending input down socket
+Connected to tcpbin.com:4242
+Sending message: testing sending input down socket
+Printing socket output: testing sending input down socket
