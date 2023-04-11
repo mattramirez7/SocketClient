@@ -1,7 +1,9 @@
 import java.io.*;
 import java.net.*;
+import java.util.logging.*;
 
 public class SocketClient {
+    private static final Logger LOGGER = Logger.getLogger(SocketClient.class.getName());
     public static void main(String[] args) {
 
         String host = args[0];
@@ -17,21 +19,21 @@ public class SocketClient {
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
 
-            System.out.println("Connected to " + host + ":" + port);
+            LOGGER.log(Level.INFO, "Connected to {0}:{1}", new Object[] {host, port});
 
             if (!message.isEmpty()) {
-                System.out.println("Sending message: " + message);
+                LOGGER.log(Level.INFO, "Sending: {0}", message);
                 out.println(message);
             }
 
-            System.out.print("Printing socket output: ");
-            String line;
-            while ((line = in.readLine()) != null) {
-                System.out.println(line);
+            String inLine;
+            while ((inLine = in.readLine()) != null) {
+                LOGGER.log(Level.INFO, "Sending: {0}", inLine);
+                System.out.println(inLine);
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException err) {
+            LOGGER.log(Level.SEVERE, "Error connecting to server", err);
         }
     }
 }
