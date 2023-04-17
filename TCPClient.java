@@ -2,8 +2,8 @@ import java.io.*;
 import java.net.*;
 import java.util.logging.*;
 
-public class SocketClient {
-    private static final Logger LOGGER = Logger.getLogger(SocketClient.class.getName());
+public class TCPClient {
+    private static final Logger LOGGER = Logger.getLogger(TCPClient.class.getName());
     public static void main(String[] args) {
 
         String host = args[0];
@@ -28,7 +28,7 @@ public class SocketClient {
 
             String inLine;
             while ((inLine = in.readLine()) != null) {
-                LOGGER.log(Level.INFO, "Sending: {0}", inLine);
+                LOGGER.log(Level.INFO, "Receiving: {0}", inLine);
                 System.out.println(inLine);
             }
 
